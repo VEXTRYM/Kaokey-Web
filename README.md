@@ -7,7 +7,7 @@ A public catalog where people **share and discover** kaomoji and lists for [Kaok
 - Public search and catalog without an account
 - Local username/password registration and sign-in
 - Publish individual kaomoji or one full Kaokey list
-- Download any publication as a Kaokey Desktop-compatible JSON list
+- Download any publication as a Kaokey Desktop-compatible JSON list (accepts `favorite` / `favorite_order` from desktop JSON, strips personal favorite state before publishing)
 - Copy individual kaomoji, delete your own publications
 - Browser UI in Russian; REST API with OpenAPI documentation
 

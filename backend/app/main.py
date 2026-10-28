@@ -62,6 +62,11 @@ class Kaomoji(BaseModel):
     name: str = Field(max_length=100)
     text: str = Field(min_length=1, max_length=200)
     tags: list[str] = Field(default_factory=list, max_length=10)
+    # Both fields may occur in Kaokey Desktop JSON. They describe local UI
+    # state, not public collection metadata, so they are accepted but reset.
+    favorite: bool | None = None
+    favorite_order: int | None = None
+
     @field_validator("tags")
     @classmethod
     def check_tags(cls, tags: list[str]):
@@ -99,6 +104,30 @@ class PublicationCreate(BaseModel):
         if not val.strip():
             raise ValueError("Title must not be blank")
         return val.strip()
+
+def portable_kaomoji(item: Kaomoji) -> dict:
+    """Produce the same fields as Kaokey Desktop's make_export_list."""
+    return {
+        "name": item.name,
+        "text": item.text,
+        "tags": list(item.tags),
+        "favorite": False,
+    }
+
+
+def portable_library(library: ImportLibrary) -> dict:
+    """Strip local-only favorite state from shared lists."""
+    item_list = library.lists[0]
+    return {
+        "format_version": 1,
+        "active_list": item_list.name,
+        "lists": [{
+            "name": item_list.name,
+            "main_tags": list(item_list.main_tags),
+            "kaomoji": [portable_kaomoji(item) for item in item_list.kaomoji],
+        }],
+    }
+
 
 class PublicationOut(BaseModel):
     id: int
@@ -207,11 +236,11 @@ def publish(body: PublicationCreate, auth: AUTH, db: DB):
     if body.kind == "kaomoji":
         if body.kaomoji is None or body.library is not None:
             raise HTTPException(422, "Provide exactly one kaomoji")
-        data = body.kaomoji.model_dump()
+        data = portable_kaomoji(body.kaomoji)
     else:
         if body.library is None or body.kaomoji is not None or body.library.active_list != body.library.lists[0].name:
             raise HTTPException(422, "Provide one Kaokey-compatible list")
-        data = body.library.model_dump()
+        data = portable_library(body.library)
     p = Publication(author_id=user.id, kind=body.kind, title=body.title, description=body.description, data=data)
     db.add(p)
     db.commit()
