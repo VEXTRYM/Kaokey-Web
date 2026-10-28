@@ -18,7 +18,13 @@ async function request<T>(path: string, options: RequestInit = {}, csrf?: string
     let detail = response.statusText;
     try {
       const body = await response.json();
-      detail = typeof body.detail === "string" ? body.detail : JSON.stringify(body.detail);
+      if (typeof body.detail === "string") {
+        detail = body.detail;
+      } else if (Array.isArray(body.detail) && body.detail.length) {
+        const first = body.detail[0];
+        const location = Array.isArray(first.loc) ? first.loc.join(".") : "данные";
+        detail = `Не удалось проверить данные (${body.detail.length} ошибок). ${location}: ${first.msg || "неверное значение"}`;
+      }
     } catch { /* use status text */ }
     throw new Error(detail);
   }
