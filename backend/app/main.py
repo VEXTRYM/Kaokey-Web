@@ -1,7 +1,10 @@
 """Kaokey community catalog REST API. No cloud mirror of private desktop libraries."""
 import hashlib
+import json
 import os
 import secrets
+from contextlib import asynccontextmanager
+from pathlib import Path
 from datetime import datetime, timedelta, timezone
 from typing import Annotated, Literal
 
@@ -10,7 +13,7 @@ from argon2.exceptions import VerifyMismatchError, VerificationError
 from fastapi import Cookie, Depends, FastAPI, HTTPException, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, ConfigDict, Field, field_validator
-from sqlalchemy import DateTime, ForeignKey, Integer, JSON, String, Text, create_engine, select
+from sqlalchemy import DateTime, ForeignKey, Integer, JSON, String, Text, create_engine, or_, select
 from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column, relationship, sessionmaker
 
 DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./kaokey-web.db")
@@ -50,7 +53,15 @@ class Publication(Base):
     author: Mapped[User] = relationship()
 
 Base.metadata.create_all(bind=engine)
-app = FastAPI(title="Kaokey Community API", version="0.1.0")
+
+@asynccontextmanager
+async def lifespan(_app: FastAPI):
+    if os.getenv("SEED_DEFAULT_CATALOG", "true").lower() in ("true", "1", "yes"):
+        with SessionLocal() as db:
+            seed_default_catalog(db)
+    yield
+
+app = FastAPI(title="Kaokey Community API", version="0.1.0", lifespan=lifespan)
 app.add_middleware(CORSMiddleware, allow_origins=ALLOWED_ORIGINS, allow_credentials=True, allow_methods=["GET", "POST", "DELETE"], allow_headers=["Content-Type", "X-CSRF-Token"])
 
 class Credentials(BaseModel):
@@ -127,6 +138,63 @@ def portable_library(library: ImportLibrary) -> dict:
             "kaomoji": [portable_kaomoji(item) for item in item_list.kaomoji],
         }],
     }
+
+
+def seed_default_catalog(db: Session, source_path: Path | None = None) -> dict[str, int]:
+    """Seed official examples once per item; never alter community publications.
+
+    The reserved author name is intentionally invalid for regular registration.
+    """
+    seed_author = "Kaokey-Defaults"
+    path = source_path or Path(__file__).parent / "data" / "kaolist.json"
+    raw = json.loads(path.read_text(encoding="utf-8"))
+    library = portable_library(ImportLibrary.model_validate(raw))
+    collection = library["lists"][0]
+
+    author = db.scalar(select(User).where(User.username == seed_author))
+    if author is None:
+        # The normal /auth/register endpoint disallows '-' in usernames.
+        author = User(username=seed_author, password_hash=ph.hash(secrets.token_urlsafe(48)))
+        db.add(author)
+        db.flush()
+
+    existing = list(db.scalars(select(Publication).where(Publication.author_id == author.id)))
+    existing_texts = {p.data.get("text") for p in existing if p.kind == "kaomoji"}
+    has_list = any(
+        p.kind == "list" and p.data.get("active_list") == collection["name"]
+        for p in existing
+    )
+
+    added_kaomoji = 0
+    for item in collection["kaomoji"]:
+        if item["text"] in existing_texts:
+            continue
+        tag = item["tags"][0] if item["tags"] else "Kaomoji"
+        title = item["name"].strip() or f"{tag} · {item['text']}"
+        db.add(Publication(
+            author_id=author.id,
+            kind="kaomoji",
+            title=title,
+            description="Из стандартного набора Kaokey",
+            data=item,
+        ))
+        existing_texts.add(item["text"])
+        added_kaomoji += 1
+
+    # Insert last so the full Default list is easy to find on the first page.
+    added_list = 0
+    if not has_list:
+        db.add(Publication(
+            author_id=author.id,
+            kind="list",
+            title=collection["name"],
+            description=f"Стандартный список Kaokey · {len(collection['kaomoji'])} каомоджи",
+            data=library,
+        ))
+        added_list = 1
+
+    db.commit()
+    return {"kaomoji": added_kaomoji, "lists": added_list}
 
 
 class PublicationOut(BaseModel):
@@ -220,7 +288,9 @@ def catalog(db: DB, q: str = "", kind: Literal["kaomoji", "list"] | None = None,
     if kind:
         stmt = stmt.where(Publication.kind == kind)
     if q:
-        stmt = stmt.where(Publication.title.ilike(f"%{q[:100]}%"))
+        term = f"%{q[:100]}%"
+        # JSON text search also finds tags and kaomoji text in shared lists.
+        stmt = stmt.where(or_(Publication.title.ilike(term), Publication.data.cast(String).ilike(term)))
     return [view(p) for p in db.scalars(stmt.order_by(Publication.id.desc()).offset(offset).limit(limit))]
 
 @app.get("/api/v1/publications/{pub_id}", response_model=PublicationOut)
