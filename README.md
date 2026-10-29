@@ -4,7 +4,8 @@ A public catalog where people **share and discover** kaomoji and lists for [Kaok
 
 ## MVP features
 
-- Public search and catalog without an account
+- Public search (title, text, tags) and paginated catalog without an account
+- Built-in Default list with 353 kaomoji seeded as 354 public publications on first API startup
 - Local username/password registration and sign-in
 - Publish individual kaomoji or one full Kaokey list
 - Download any publication as a Kaokey Desktop-compatible JSON list (accepts `favorite` / `favorite_order` from desktop JSON, strips personal favorite state before publishing)
@@ -23,7 +24,22 @@ docker compose up --build
 - API docs: http://localhost:8000/docs
 - Health: http://localhost:8000/api/v1/health
 
+On first startup, the API seeds **353 individual kaomoji and the Default list** from `backend/app/data/kaolist.json`, under the reserved `@Kaokey-Defaults` author. Later restarts skip already-seeded content and do not change user publications. Set `SEED_DEFAULT_CATALOG=false` on the API service to disable seeding.
+
 The frontend's development server proxies `/api` to the backend container. To run the frontend directly on your machine, set `VITE_API_PROXY_TARGET=http://localhost:8000` before `npm run dev`.
+
+## Windows: workaround for Docker Compose Bake failures
+
+If `docker compose up --build` errors with `failed to execute bake`, build separately:
+
+```powershell
+git pull
+docker build -t kaokey-web-api .\backend
+docker build -t kaokey-web-web .\frontend
+docker compose up --no-build --force-recreate
+```
+
+PostgreSQL data is preserved in the named Docker volume.
 
 ## Development
 

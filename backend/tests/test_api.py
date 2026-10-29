@@ -88,3 +88,40 @@ def test_single_kaomoji_accepts_desktop_favorite_fields():
     assert response.status_code == 201, response.text
     assert response.json()["data"]["favorite"] is False
     assert "favorite_order" not in response.json()["data"]
+
+
+def test_default_catalog_seed_is_complete_and_idempotent():
+    from sqlalchemy import func, select
+    from app.main import Publication, SessionLocal, User, seed_default_catalog
+
+    with SessionLocal() as db:
+        before_user_posts = db.scalar(select(func.count()).select_from(Publication))
+        first = seed_default_catalog(db)
+        assert first == {"kaomoji": 353, "lists": 1}
+        again = seed_default_catalog(db)
+        assert again == {"kaomoji": 0, "lists": 0}
+
+        author = db.scalar(select(User).where(User.username == "Kaokey-Defaults"))
+        assert author is not None
+        seeds = list(db.scalars(select(Publication).where(Publication.author_id == author.id)))
+        assert len(seeds) == 354
+        assert len([p for p in seeds if p.kind == "kaomoji"]) == 353
+        assert len([p for p in seeds if p.kind == "list"]) == 1
+        default = next(p for p in seeds if p.kind == "list")
+        assert default.data["format_version"] == 1
+        assert default.data["lists"][0]["main_tags"] == [
+            "Happy", "Classic ASCII", "Greetings", "Acting cute", "Sad", "Angry", "Surprised"
+        ]
+        assert len(default.data["lists"][0]["kaomoji"]) == 353
+        assert db.scalar(select(func.count()).select_from(Publication)) == before_user_posts + 354
+        assert all(p.data["favorite"] is False for p in seeds if p.kind == "kaomoji")
+
+        # Search and pagination expose the seeded library to anonymous visitors.
+        items = client.get("/api/v1/publications", params={"limit": 41}).json()
+        assert len(items) == 41
+        assert items[0]["kind"] == "list"
+        filtered = client.get("/api/v1/publications", params={"q": "Classic ASCII", "kind": "kaomoji"}).json()
+        assert filtered
+        assert all(p["kind"] == "kaomoji" for p in filtered)
+        exported = client.get(f"/api/v1/publications/{default.id}/export").json()
+        assert len(exported["lists"][0]["kaomoji"]) == 353

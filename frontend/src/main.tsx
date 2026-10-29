@@ -34,6 +34,9 @@ async function request<T>(path: string, options: RequestInit = {}, csrf?: string
 function App() {
   const [account, setAccount] = useState<Account | null>(null);
   const [publications, setPublications] = useState<Publication[]>([]);
+  const [page, setPage] = useState(0);
+  const [hasNext, setHasNext] = useState(false);
+  const pageSize = 40;
   const [query, setQuery] = useState("");
   const [kind, setKind] = useState("all");
   const [mode, setMode] = useState<"login" | "register">("login");
@@ -52,11 +55,17 @@ function App() {
     const params = new URLSearchParams();
     if (query) params.set("q", query);
     if (kind !== "all") params.set("kind", kind);
-    try { setPublications(await request<Publication[]>("/publications?" + params)); }
+    params.set("offset", String(page * pageSize));
+    params.set("limit", String(pageSize + 1));
+    try {
+      const batch = await request<Publication[]>("/publications?" + params);
+      setPublications(batch.slice(0, pageSize));
+      setHasNext(batch.length > pageSize);
+    }
     catch (e) { setError(String(e)); }
   }
   useEffect(() => { request<Account>("/auth/me").then(setAccount).catch(() => {}); }, []);
-  useEffect(() => { void loadCatalog(); }, [query, kind]);
+  useEffect(() => { void loadCatalog(); }, [query, kind, page]);
 
   async function onAuth(event: React.FormEvent) {
     event.preventDefault(); setError(""); setNotice("");
@@ -84,7 +93,8 @@ function App() {
       await request("/publications", { method: "POST", body: JSON.stringify(payload) }, account.csrf_token);
       setTitle(""); setDescription(""); setText(""); setTags(""); setFile(null);
       setNotice("Публикация создана.");
-      await loadCatalog();
+      setPage(0);
+      if (page === 0) await loadCatalog();
     } catch (e) { setError(String(e)); }
   }
 
@@ -122,8 +132,8 @@ function App() {
         <a className="primary link" href="#catalog">Смотреть каталог ↓</a>
       </section>
       {(error || notice) && <div role="status" className={error ? "alert" : "success"}>{error || notice} <button onClick={() => { setError(""); setNotice(""); }} aria-label="Закрыть">×</button></div>}
-      <section id="catalog"><div className="sectionTitle"><div><div className="eyebrow">EXPLORE</div><h2>Каталог сообщества</h2></div><span className="muted">{publications.length} публикаций</span></div>
-        <div className="filters"><input aria-label="Поиск" placeholder="Поиск по названию..." value={query} onChange={e => setQuery(e.target.value)}/><select aria-label="Тип публикаций" value={kind} onChange={e => setKind(e.target.value)}><option value="all">Все публикации</option><option value="kaomoji">Каомоджи</option><option value="list">Списки</option></select></div>
+      <section id="catalog"><div className="sectionTitle"><div><div className="eyebrow">EXPLORE</div><h2>Каталог сообщества</h2></div><span className="muted">Страница {page + 1}</span></div>
+        <div className="filters"><input aria-label="Поиск" placeholder="Поиск по названию, символу или тегу..." value={query} onChange={e => { setQuery(e.target.value); setPage(0); }}/><select aria-label="Тип публикаций" value={kind} onChange={e => { setKind(e.target.value); setPage(0); }}><option value="all">Все публикации</option><option value="kaomoji">Каомоджи</option><option value="list">Списки</option></select></div>
         <div className="cards">{publications.length ? publications.map(pub => <article key={pub.id} className="card">
           <div className="cardTop"><span className="kind">{pub.kind === "list" ? "▤ Список" : "✿ Каомоджи"}</span><span className="muted">@{pub.author}</span></div>
           <h3>{pub.title}</h3>
@@ -133,7 +143,12 @@ function App() {
             {pub.kind === "kaomoji" && <button onClick={() => { navigator.clipboard.writeText((pub.data as Item).text).then(() => setNotice("Скопировано")).catch(() => setError("Не удалось скопировать")); }}>Копировать</button>}
             {account?.username === pub.author && <button className="danger" onClick={() => remove(pub.id)}>Удалить</button>}
           </div>
-        </article>) : <div className="empty">Пока нет публикаций. Стань первым! (｡◕‿◕｡)</div>}</div>
+        </article>) : <div className="empty">Пока нет публикаций на этой странице. (｡◕‿◕｡)</div>}</div>
+        <div className="pagination">
+          <button className="subtle" disabled={page === 0} onClick={() => setPage(p => Math.max(0, p - 1))}>← Назад</button>
+          <span className="muted">{page * pageSize + (publications.length ? 1 : 0)}–{page * pageSize + publications.length}</span>
+          <button className="subtle" disabled={!hasNext} onClick={() => setPage(p => p + 1)}>Далее →</button>
+        </div>
       </section>
       <div className="columns">
         <section id="publish" className="panel"><div className="eyebrow">CREATE</div><h2>Поделиться</h2>{account ? <form onSubmit={publish}>
