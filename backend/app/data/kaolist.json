@@ -1,0 +1,2853 @@
+{
+  "format_version": 1,
+  "active_list": "Default",
+  "lists": [
+    {
+      "name": "Default",
+      "main_tags": [
+        "Happy",
+        "Classic ASCII",
+        "Greetings",
+        "Acting cute",
+        "Sad",
+        "Angry",
+        "Surprised"
+      ],
+      "kaomoji": [
+        {
+          "name": "",
+          "text": ";)",
+          "tags": [
+            "Classic ASCII"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "^_~",
+          "tags": [
+            "Classic ASCII"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": ";-)",
+          "tags": [
+            "Classic ASCII"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": ":)",
+          "tags": [
+            "Classic ASCII"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "^_^",
+          "tags": [
+            "Classic ASCII"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": ":-)",
+          "tags": [
+            "Classic ASCII"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": ":D",
+          "tags": [
+            "Classic ASCII"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "^0^",
+          "tags": [
+            "Classic ASCII"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": ":-D",
+          "tags": [
+            "Classic ASCII"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": ":P",
+          "tags": [
+            "Classic ASCII"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": ":-P",
+          "tags": [
+            "Classic ASCII"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": ";P",
+          "tags": [
+            "Classic ASCII"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": ":(",
+          "tags": [
+            "Classic ASCII"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": ":-(",
+          "tags": [
+            "Classic ASCII"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "U_U",
+          "tags": [
+            "Classic ASCII"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": ":[",
+          "tags": [
+            "Classic ASCII"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": ">”<",
+          "tags": [
+            "Classic ASCII"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "):",
+          "tags": [
+            "Classic ASCII"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": ":-O",
+          "tags": [
+            "Classic ASCII"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "O.O",
+          "tags": [
+            "Classic ASCII"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": ":-()",
+          "tags": [
+            "Classic ASCII"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "~_~",
+          "tags": [
+            "Classic ASCII"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "^o^",
+          "tags": [
+            "Classic ASCII"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "ヾ(≧▽≦*)o",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "φ(*￣0￣)",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "q(≧▽≦q)",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "ψ(｀∇´)ψ",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "（￣︶￣）↗",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "*^____^*",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(～￣▽￣)～",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "( •̀ ω •́ )✧",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "[]~(￣▽￣)~*",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "φ(゜▽゜*)♪",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "o(*^＠^*)o",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "O(∩_∩)O",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(✿◡‿◡)",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "`(>﹏<)′",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(*^▽^*)",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "（*＾-＾*）",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(*^_^*)",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(❁´◡`❁)",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(≧∇≦)ﾉ",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(´▽`ʃ♡ƪ)",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(●ˇ∀ˇ●)",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "○( ＾皿＾)っ Hehehe",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(￣y▽￣)╭ Ohohoho…..",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "\\^o^/",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(‾◡◝)",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "╰(°▽°)╯",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(〃￣︶￣)人(￣︶￣〃)",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "o(^▽^)┛",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "o(￣▽￣)ブ",
+          "tags": [
+            "Happy",
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(^-)db(-^)",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "♪(^∇^*)",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(≧∀≦)ゞ",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "o(￣︶￣)o",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "–<-<-<@",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(oﾟvﾟ)ノ",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "o(*≧▽≦)ツ┏━┓",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(/≧▽≦)/",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "( $ _ $ )",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(☆▽☆)",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "ヾ(＠⌒ー⌒＠)ノ",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "ㄟ(≧◇≦)ㄏ",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "o((>ω< ))o",
+          "tags": [
+            "Happy",
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "( *︾▽︾)",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "ヾ(≧ ▽ ≦)ゝ",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "☆: .｡. o(≧▽≦)o .｡.:☆",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(((o(ﾟ▽ﾟ)o)))",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "＼(((￣(￣(￣▽￣)￣)￣)))／",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "♪(´▽｀)",
+          "tags": [
+            "Happy",
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "( ^-^)ρ(^0^ )",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "~~~///(^v^)\\~ ~~",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(^///^)",
+          "tags": [
+            "Happy",
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(p≧w≦q)",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "o(￣▽￣)o",
+          "tags": [
+            "Happy",
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "( •̀ ω •́ )y",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(o゜▽゜)o☆",
+          "tags": [
+            "Happy",
+            "Greetings",
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "ƪ(˘⌣˘)ʃ",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "ヾ(•ω•`)o",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(￣︶￣*))",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(* ￣3)(ε￣ *)",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "－O－",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(*￣3￣)╭",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "( ´･･)ﾉ(._.`)",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(｡･∀･)ﾉﾞ",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(_　_)。゜zｚＺ",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(ToT)/~~~",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(∪.∪ )…zzz",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "!(*￣(￣　*)",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(￣o￣) . z Z",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(づ￣ 3￣)づ",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "（＾∀＾●）ﾉｼ",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "（づ￣3￣）づ╭❤～",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(@^0^@)/",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "ヾ(^▽^*)))",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(～﹃～)~zZ",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "☆⌒(*＾-゜)v",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(*￣;(￣ *)",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "||ヽ(￣▽￣)ノミ|Ю",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(＾Ｕ＾)ノ~ＹＯ",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "o(°▽°)o",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "ヾ(￣▽￣) Bye~Bye~",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "( ﾟдﾟ)つ Bye",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(๑•̀ㅂ•́)و✧",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "✪ ω ✪",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "d=====(￣▽￣*)b",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "＜（＾－＾）＞",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "o(￣▽￣)ｄ",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(╹ڡ╹ )",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(u‿ฺu✿ฺ)",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(╯▽╰ )",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "ヽ(✿ﾟ▽ﾟ)ノ",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "( •̀ .̫ •́ )✧",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(^^ゞ",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(＠＾０＾)",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "（。＾▽＾）",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "Ψ(￣∀￣)Ψ",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "★,°:.☆(￣▽￣)/$:.°★ 。",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(。・∀・)ノ",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "~(≧▽≦)/~",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "b(￣▽￣)d",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "o(^▽^)o",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(☞ﾟヮﾟ)☞",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "☜(ﾟヮﾟ☜)",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(¬‿¬)",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(•_•)",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "( •_•)>⌐■-■",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(⌐■_■)",
+          "tags": [
+            "Greetings"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(￣y▽,￣)╭",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(o|o)",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(^人^)",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "§(￣▽￣)§",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "ψ(._. )>",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(/▽＼)",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(o′┏▽┓｀o)",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(≧︶≦))(￣▽￣ )ゞ",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(　o=^•ェ•)o　┏━┓",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "◑﹏◐",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(○｀ 3′○)",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(ಥ _ ಥ)",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(⓿_⓿)",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(❤´艸｀❤)",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(ง •_•)ง",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "（〃｀ 3′〃）",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(●’◡’●)",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "o(〃＾▽＾〃)o",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(。・ω・。)",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(✿◠‿◠)",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "ˋ( ° ▽、° )",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(/ω＼)",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "=￣ω￣=",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "ο(=•ω＜=)ρ⌒☆",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(✿◕‿◕✿)",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "╰(￣ω￣ｏ)",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "~(￣▽￣)~*",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(～o￣3￣)～",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(っ´Ι`)っ",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "ԅ(¯﹃¯ԅ)",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(￣﹃￣)",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "༼ つ ◕_◕ ༽つ",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "o(////▽////)q",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(/ω＼*)ÖÖÖ (/ω•＼*)",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "( ‵▽′)ψ",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "( ﹁ ﹁ ) ~→",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(❤ ω ❤)",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(★ ω ★)",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "ヽ(￣ω￣(￣ω￣〃)ゝ",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "*(੭*ˊᵕˋ)੭*ଘ",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "┏ (゜ω゜)=☞",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "U•ェ•*U",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "（￣。。￣）",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(°°)～",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "m( =∩王∩= )m",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "o(=•ェ•=)m",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(‧‧)nnn",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(0^◇^0)/",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "~o( =∩ω∩= )m",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "–(˙<>˙)/",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "–( ఠൠఠ )ﾉ",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "≡[。。]≡",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(:≡",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "．<{=．．．．",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "ฅʕ•̫͡•ʔฅ",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "( ⓛ ω ⓛ *)",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "ᓚᘏᗢ",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "( ¯(∞)¯ )",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(￣(工)￣)",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "<。)#)))≦",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(:◎)≡",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "^(*￣(oo)￣)^",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "( ͡• ͜ʖ ͡• )",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "/_ \\",
+          "tags": [
+            "Sad"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "（；´д｀）ゞ",
+          "tags": [
+            "Sad"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "＞﹏＜",
+          "tags": [
+            "Sad"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(っ °Д °;)っ",
+          "tags": [
+            "Sad"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(￣ ‘i ￣;)",
+          "tags": [
+            "Sad"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "( *^-^)ρ(*╯^╰)",
+          "tags": [
+            "Sad"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "＞︿＜",
+          "tags": [
+            "Sad"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "o(￣┰￣*)ゞ",
+          "tags": [
+            "Sad"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(ノへ￣、)",
+          "tags": [
+            "Sad"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "<(＿　＿)>",
+          "tags": [
+            "Sad"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(#｀-_ゝ-)",
+          "tags": [
+            "Sad"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "（＞人＜；）",
+          "tags": [
+            "Sad"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "{{{(>_<)}}}",
+          "tags": [
+            "Sad"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "≡(▔﹏▔)≡",
+          "tags": [
+            "Sad"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(#_<-)",
+          "tags": [
+            "Sad"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "⊙﹏⊙∥",
+          "tags": [
+            "Sad",
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "ヽ(*。>Д<)o゜",
+          "tags": [
+            "Sad"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "/(ㄒoㄒ)/~~~",
+          "tags": [
+            "Sad"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(;´༎ຶД༎ຶ`)",
+          "tags": [
+            "Sad"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "::>_<::",
+          "tags": [
+            "Sad"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "╯︿╰",
+          "tags": [
+            "Sad"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "இ௰இ",
+          "tags": [
+            "Sad"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(┬┬﹏┬┬)",
+          "tags": [
+            "Sad"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(´。＿。｀)",
+          "tags": [
+            "Sad"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(；′⌒`)",
+          "tags": [
+            "Sad"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "≧ ﹏ ≦",
+          "tags": [
+            "Sad"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "〒▽〒",
+          "tags": [
+            "Sad"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "━((*′д｀)爻(′д｀*))━!!!!",
+          "tags": [
+            "Sad"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(T_T)(≧﹏ ≦)(′д｀ )Ö彡…彡",
+          "tags": [
+            "Sad"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "<( _ _ )>",
+          "tags": [
+            "Sad"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "o(TヘTo)",
+          "tags": [
+            "Sad"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "~~>_<~~",
+          "tags": [
+            "Sad"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "┗( T﹏T )┛",
+          "tags": [
+            "Sad"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(。﹏。*)",
+          "tags": [
+            "Sad"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "X﹏X",
+          "tags": [
+            "Sad"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "ಥ_ಥ",
+          "tags": [
+            "Sad"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "╰（‵□′）╯",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(～￣(OO)￣)ブ",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "o(≧口≦)o",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(╬▔皿▔)╯",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(⊙x⊙;)",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "￣へ￣",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "（︶^︶）",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(* ￣︿￣)",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "ヽ（≧□≦）ノ",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "╰(艹皿艹 )",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "___*( ￣皿￣)/#____",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(￣ε(#￣)☆╰╮o(￣皿￣///)",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "<( ￣^￣)(θ(θ☆( >_<",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(￣ε(#￣)",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(ﾟДﾟ*)ﾉ",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "○|￣|_ =3",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "┗|｀O′|┛",
+          "tags": [
+            "Angry",
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(′д｀σ)σ",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(ノ｀Д)ノ",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(￢︿̫̿￢☆)",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "～(　TロT)σ",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(〃＞目＜)",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(///￣皿￣)○～",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "<( ‵□′)>───Ｃε(┬﹏┬)3",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "<( ‵□′)───C＜─_-)||",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "ε=( o｀ω′)ノ",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(ｏ ‵-′)ノ”(ノ﹏<。)",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "ヾ(≧へ≦)〃",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(╯▔皿▔)╯",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(σ｀д′)σ",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "ヽ(゜▽゜　)－C<(/;◇;)/~",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(╯‵□′)╯︵┻━┻",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "┳━┳ ノ( ゜-゜ノ)",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(╯°□°）╯︵ ┻━┻",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(ヘ･_･)ヘ┳━┳",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "o(一︿一+)o",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(￣﹏￣；)",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "ಠ_ಠ",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "ಠಿ_ಠ",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(¬_¬ )",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(¬_¬”)",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "w(ﾟДﾟ)w",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "（⊙ｏ⊙）",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(＃°Д°)",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "（*゜ー゜*）",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(。_。)",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "…(*￣０￣)ノ",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "o((⊙﹏⊙))o.",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(⊙ˍ⊙)",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(⊙_⊙)？",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(⊙_⊙;)",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(⊙o⊙)",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "⊙.☉",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "¯(°_o)/¯",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(´･ω･`)?",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(￣┰￣*)",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "o(><；)oo",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "Σ(っ °Д °;)っ",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "∑( 口 ||",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "┌(。Д。)┐",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(°ー°〃)",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "ε=ε=ε=(~￣▽￣)~",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(￣m￣）",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(ノω<。)ノ))☆.。",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(ﾉ*･ω･)ﾉ",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(#`O′)",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "щ(ʘ╻ʘ)щ",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "（o´・ェ・｀o）",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(Φ皿Φ)(・∀・(・∀・(・∀・*)",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(○´･д･)ﾉ",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "┬┴┬┴┤(･_├┬┴┬┴",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(o_ _)ﾉ",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(＠_＠;)",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "ㄟ( ▔, ▔ )ㄏ",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(￣_,￣ )",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(+_+)?",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(。>︿<)_θ",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "<(￣ c￣)y▂ξ",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(๐॔˃̶ᗜ˂̶๐॓)",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "o_o",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "━┳━　━┳━",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "━━(￣ー￣*|||━━",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "ÖÖ]((o_ _)’彡☆",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(。﹏。)",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(⊙﹏⊙)",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "…( ＿ ＿)ノ｜",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": ",,ԾㅂԾ,,",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "m( _ _ )m",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(lll￢ω￢)",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "╮(╯-╰)╭",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(￣▽￣)”",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(￣_￣|||)",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "_〆(´Д｀ )",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(x_x)",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "( ╯□╰ )",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "┌( ´_ゝ` )┐",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "－_－b",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(ˉ﹃ˉ)",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "╮（╯＿╰）╭",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "○|￣|_",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(ˉ▽￣～)",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(´ｰ∀ｰ`)",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(。・・)ノ",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(:з)∠)",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "┑(￣Д ￣)┍",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "ε=ε=ε=┏(゜ロ゜;)┛",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(*￣rǒ￣)",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "つ﹏⊂",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(￣、￣)",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "╮(╯▽╰)╭",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(☆-ｖ-)",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(ˉ▽ˉ；)…",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(◎﹏◎)",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(((φ(◎ロ◎;)φ)))",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "<@_@>",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "→_→",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "←_←",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "ヾ(⌐■_■)ノ♪",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(∩^o^)⊃━☆",
+          "tags": [
+            "Happy"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "ლ(╹◡╹ლ)",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "( ͡~ ͜ʖ ͡°)",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "/ᐠ｡ꞈ｡ᐟ\\",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "¯\\_(ツ)_/¯",
+          "tags": [
+            "Acting cute"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "ಠ_ರೃ",
+          "tags": [
+            "Angry"
+          ],
+          "favorite": false
+        },
+        {
+          "name": "",
+          "text": "(⊙_◎)",
+          "tags": [
+            "Surprised"
+          ],
+          "favorite": false
+        }
+      ]
+    }
+  ]
+}
