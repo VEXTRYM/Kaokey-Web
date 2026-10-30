@@ -281,12 +281,14 @@ def logout(response: Response, auth: AUTH, db: DB):
     return {"ok": True}
 
 @app.get("/api/v1/publications", response_model=list[PublicationOut])
-def catalog(db: DB, q: str = "", kind: Literal["kaomoji", "list"] | None = None, limit: int = 40, offset: int = 0):
+def catalog(db: DB, q: str = "", kind: Literal["kaomoji", "list"] | None = None, author: str | None = None, limit: int = 40, offset: int = 0):
     if not 1 <= limit <= 100 or not 0 <= offset <= 100000:
         raise HTTPException(422, "Invalid pagination")
     stmt = select(Publication)
     if kind:
         stmt = stmt.where(Publication.kind == kind)
+    if author:
+        stmt = stmt.where(Publication.author.has(User.username == author))
     if q:
         term = f"%{q[:100]}%"
         # JSON text search also finds tags and kaomoji text in shared lists.
