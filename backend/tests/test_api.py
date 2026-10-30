@@ -125,3 +125,30 @@ def test_default_catalog_seed_is_complete_and_idempotent():
         assert all(p["kind"] == "kaomoji" for p in filtered)
         exported = client.get(f"/api/v1/publications/{default.id}/export").json()
         assert len(exported["lists"][0]["kaomoji"]) == 353
+
+
+def test_catalog_author_filter_limits_results_to_selected_user():
+    users = [
+        {"username": "author_rose_a", "password": "password-rose-a"},
+        {"username": "author_rose_b", "password": "password-rose-b"},
+    ]
+    for user in users:
+        assert client.post("/api/v1/auth/register", json=user).status_code == 201
+        csrf = client.post("/api/v1/auth/login", json=user).json()["csrf_token"]
+        result = client.post(
+            "/api/v1/publications",
+            json={"kind": "kaomoji", "title": "Shared Rose", "kaomoji": {
+                "name": "Shared Rose", "text": "(^_^)", "tags": ["happy"],
+            }},
+            headers={"X-CSRF-Token": csrf},
+        )
+        assert result.status_code == 201, result.text
+        assert client.post("/api/v1/auth/logout", headers={"X-CSRF-Token": csrf}).status_code == 200
+
+    all_items = client.get("/api/v1/publications", params={"q": "Shared Rose", "kind": "kaomoji"}).json()
+    assert {p["author"] for p in all_items} == {"author_rose_a", "author_rose_b"}
+    filtered = client.get(
+        "/api/v1/publications", params={"author": "author_rose_a", "q": "Shared Rose", "kind": "kaomoji"}
+    )
+    assert filtered.status_code == 200
+    assert [pub["author"] for pub in filtered.json()] == ["author_rose_a"]
