@@ -50,6 +50,7 @@ function App() {
   const [tags, setTags] = useState("");
   const [file, setFile] = useState<Library | null>(null);
   const [tab, setTab] = useState<"kaomoji" | "list">("kaomoji");
+  const [dialog, setDialog] = useState<"auth" | "share" | null>(null);
 
   async function loadCatalog() {
     const params = new URLSearchParams();
@@ -78,6 +79,7 @@ function App() {
       } else {
         setAccount(await request<Account>("/auth/login", { method: "POST", body }));
         setPassword("");
+        setDialog(null);
       }
     } catch (e) { setError(String(e)); }
   }
@@ -93,8 +95,10 @@ function App() {
       await request("/publications", { method: "POST", body: JSON.stringify(payload) }, account.csrf_token);
       setTitle(""); setDescription(""); setText(""); setTags(""); setFile(null);
       setNotice("Публикация создана.");
+      setDialog(null);
+      setKind(tab);
       setPage(0);
-      if (page === 0) await loadCatalog();
+      if (page === 0 && kind === tab) await loadCatalog();
     } catch (e) { setError(String(e)); }
   }
 
@@ -120,53 +124,117 @@ function App() {
     catch (e) { setError(String(e)); }
   }
 
-  return <div className="site">
-    <header><div className="brand">✿ <span>Kaokey</span> <small>Community</small></div>
-      <nav><a href="#catalog">Каталог</a><a href="#publish">Поделиться</a><a href="https://github.com/VEXTRYM/Kaokey" target="_blank" rel="noreferrer">Приложение ↗</a></nav>
-      <div>{account ? <span className="account">@{account.username} <button className="subtle" onClick={async () => { try { await request("/auth/logout", { method: "POST" }, account.csrf_token); setAccount(null); } catch (e) { setError(String(e)); } }}>Выйти</button></span> : <a href="#auth" className="pill">Войти</a>}</div>
+  const changeKind = (next: "kaomoji" | "list") => { setKind(next); setPage(0); };
+  const showShare = () => {
+    if (!account) { setMode("login"); setDialog("auth"); setNotice("Для публикации нужно войти."); }
+    else { setTab(kind === "list" ? "list" : "kaomoji"); setDialog("share"); }
+  };
+
+  const downloadIcon = <svg width="31" height="31" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M12 2v14m-5-5 5 5 5-5M4 18v4h16v-4"/>
+  </svg>;
+  const importIcon = <svg width="31" height="31" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <rect x="3" y="3" width="12" height="18" rx="1"/><path d="M6.5 8h5m-5 4h5m-5 4h5M18 8v9m-3-3 3 3 3-3"/>
+  </svg>;
+
+  return <div className="app">
+    <header className="topbar">
+      <a href="/" className="logo" aria-label="Kaokey — главная">Kaokey</a>
+      <nav className="main-tabs" aria-label="Категория публикаций">
+        <button type="button" aria-pressed={kind === "kaomoji"} className={kind === "kaomoji" ? "tab selected" : "tab"} onClick={() => changeKind("kaomoji")}>Каомоджи</button>
+        <button type="button" aria-pressed={kind === "list"} className={kind === "list" ? "tab selected" : "tab"} onClick={() => changeKind("list")}>Списки</button>
+      </nav>
+      <div className="account-actions">
+        {account ? <>
+          <span className="username">@{account.username}</span>
+          <button type="button" className="outline-btn" onClick={async () => {
+            try { await request("/auth/logout", {method:"POST"}, account.csrf_token); setAccount(null); }
+            catch (e) { setError(String(e)); }
+          }}>Выйти</button>
+        </> : <button type="button" className="outline-btn" onClick={() => { setMode("login"); setDialog("auth"); }}>Войти</button>}
+        <a className="outline-btn" href="https://github.com/VEXTRYM/Kaokey" rel="noreferrer" target="_blank">App</a>
+      </div>
     </header>
-    <main>
-      <section className="hero"><div className="eyebrow">KAOKEY COMMUNITY</div>
-        <h1>Поделись настроением <span>(づ｡◕‿‿◕｡)づ</span></h1>
-        <p>Публикуй свои каомоджи и списки, находи новые и добавляй их в Kaokey.</p>
-        <a className="primary link" href="#catalog">Смотреть каталог ↓</a>
-      </section>
-      {(error || notice) && <div role="status" className={error ? "alert" : "success"}>{error || notice} <button onClick={() => { setError(""); setNotice(""); }} aria-label="Закрыть">×</button></div>}
-      <section id="catalog"><div className="sectionTitle"><div><div className="eyebrow">EXPLORE</div><h2>Каталог сообщества</h2></div><span className="muted">Страница {page + 1}</span></div>
-        <div className="filters"><input aria-label="Поиск" placeholder="Поиск по названию, символу или тегу..." value={query} onChange={e => { setQuery(e.target.value); setPage(0); }}/><select aria-label="Тип публикаций" value={kind} onChange={e => { setKind(e.target.value); setPage(0); }}><option value="all">Все публикации</option><option value="kaomoji">Каомоджи</option><option value="list">Списки</option></select></div>
-        <div className="cards">{publications.length ? publications.map(pub => <article key={pub.id} className="card">
-          <div className="cardTop"><span className="kind">{pub.kind === "list" ? "▤ Список" : "✿ Каомоджи"}</span><span className="muted">@{pub.author}</span></div>
-          <h3>{pub.title}</h3>
-          <div className="preview">{pub.kind === "kaomoji" ? (pub.data as Item).text : (pub.data as Library).lists[0].kaomoji.slice(0, 3).map(x => x.text).join("  ") || "Пустой список"}</div>
-          <p>{pub.description || (pub.kind === "list" ? ((pub.data as Library).lists[0].kaomoji.length + " элементов") : "Новый каомоджи")}</p>
-          <div className="actions"><a href={api + "/publications/" + pub.id + "/export" } download>↓ Скачать JSON</a>
-            {pub.kind === "kaomoji" && <button onClick={() => { navigator.clipboard.writeText((pub.data as Item).text).then(() => setNotice("Скопировано")).catch(() => setError("Не удалось скопировать")); }}>Копировать</button>}
-            {account?.username === pub.author && <button className="danger" onClick={() => remove(pub.id)}>Удалить</button>}
-          </div>
-        </article>) : <div className="empty">Пока нет публикаций на этой странице. (｡◕‿◕｡)</div>}</div>
-        <div className="pagination">
-          <button className="subtle" disabled={page === 0} onClick={() => setPage(p => Math.max(0, p - 1))}>← Назад</button>
-          <span className="muted">{page * pageSize + (publications.length ? 1 : 0)}–{page * pageSize + publications.length}</span>
-          <button className="subtle" disabled={!hasNext} onClick={() => setPage(p => p + 1)}>Далее →</button>
+    <main className="workspace">
+      <div className="toolbar"><button type="button" className="outline-btn share-btn" onClick={showShare}>Поделиться +</button></div>
+      {(error || notice) && <div className={error ? "message error" : "message"} role="status">
+        <span>{error || notice}</span>
+        <button type="button" aria-label="Закрыть" onClick={() => {setError("");setNotice("");}}>×</button>
+      </div>}
+      <section className="board" aria-label={kind === "kaomoji" ? "Каталог каомоджи" : "Каталог списков"}>
+        <div className="tile-grid">
+          {publications.map(pub => {
+            const list = pub.kind === "list" ? (pub.data as Library).lists[0] : null;
+            return <article className={"tile " + (list ? "list-tile" : "kaomoji-tile")} key={pub.id}>
+              <div className="tile-preview">
+                {list ? <>
+                  <div className="list-name">{list.name}</div>
+                  <div className="list-size">{list.kaomoji.length} каомоджи</div>
+                  <div className="list-samples">{list.kaomoji.slice(0,3).map(x => x.text).join("  ")}</div>
+                </> : <span className="kaomoji-text">{(pub.data as Item).text}</span>}
+              </div>
+              <div className="tile-overlay">
+                <div className="tile-operations">
+                  <a className="icon-action" href={api + "/publications/" + pub.id + "/export"} download
+                    title="Скачать как JSON" aria-label="Скачать как JSON">{downloadIcon}</a>
+                  <button className="icon-action" type="button" title="Импортировать в Kaokey (скоро)"
+                    aria-label="Импортировать в Kaokey (скоро)"
+                    onClick={() => setNotice("Импорт в Kaokey пока не реализован.")}>{importIcon}</button>
+                </div>
+                <div className="tile-bottom">
+                  {account?.username === pub.author
+                    ? <button type="button" className="delete-link" title="Удалить публикацию" onClick={() => void remove(pub.id)}>Удалить</button>
+                    : <span />}
+                  <span className="tile-author">@{pub.author}</span>
+                </div>
+              </div>
+            </article>;
+          })}
+          {publications.length === 0 && <p className="no-items">Пока ничего нет.</p>}
         </div>
       </section>
-      <div className="columns">
-        <section id="publish" className="panel"><div className="eyebrow">CREATE</div><h2>Поделиться</h2>{account ? <form onSubmit={publish}>
-          <div className="tabs"><button type="button" className={tab === "kaomoji" ? "active" : ""} onClick={() => setTab("kaomoji")}>Один каомоджи</button><button type="button" className={tab === "list" ? "active" : ""} onClick={() => setTab("list")}>Целый список</button></div>
-          <label>Название<input required maxLength={100} value={title} onChange={e => setTitle(e.target.value)} /></label>
-          <label>Описание (необязательно)<textarea maxLength={1000} value={description} onChange={e => setDescription(e.target.value)} /></label>
-          {tab === "kaomoji" ? <><label>Каомоджи<input required maxLength={200} value={text} onChange={e => setText(e.target.value)} placeholder="(≧◡≦) ♡" /></label><label>Теги через запятую<input value={tags} onChange={e => setTags(e.target.value)} placeholder="cute, happy" /></label></>
-          : <label>JSON-файл списка Kaokey<input type="file" accept=".json,application/json" onChange={onFile} required={!file}/>{file && <span className="muted">Загружен: {file.lists[0].name} ({file.lists[0].kaomoji.length} каомоджи)</span>}</label>}
-          <button className="primary" type="submit" disabled={tab === "list" && !file}>Опубликовать →</button>
-        </form> : <p className="muted">Для публикации нужно войти или зарегистрироваться. Просмотр и скачивание доступны всем.</p>}</section>
-        <section className="panel" id="auth"><div className="eyebrow">ACCOUNT</div><h2>{account ? "Твой профиль" : "Присоединиться"}</h2>{account ? <><p>Ты вошёл как <b>@{account.username}</b>.</p><p className="muted">Твои публикации отмечены в общем каталоге. Здесь нет облачной копии твоей личной библиотеки.</p></> : <form onSubmit={onAuth}>
-          <div className="tabs"><button type="button" className={mode === "login" ? "active" : ""} onClick={() => setMode("login")}>Вход</button><button type="button" className={mode === "register" ? "active" : ""} onClick={() => setMode("register")}>Регистрация</button></div>
-          <label>Логин<input required minLength={3} maxLength={32} pattern="[A-Za-z0-9_]+" autoComplete="username" value={username} onChange={e => setUsername(e.target.value)}/></label>
-          <label>Пароль<input required type="password" minLength={10} maxLength={128} autoComplete={mode === "register" ? "new-password" : "current-password"} value={password} onChange={e => setPassword(e.target.value)}/></label>
-          <button className="primary" type="submit">{mode === "login" ? "Войти" : "Создать аккаунт"} →</button>
-        </form>}</section>
+      <div className="pagination">
+        <button className="outline-btn" type="button" disabled={page === 0} onClick={() => setPage(p => Math.max(0, p-1))}>← Назад</button>
+        <span>{page * pageSize + (publications.length ? 1 : 0)}–{page * pageSize + publications.length}</span>
+        <button className="outline-btn" type="button" disabled={!hasNext} onClick={() => setPage(p => p+1)}>Далее →</button>
       </div>
-    </main><footer><span>Kaokey Community · Сделано для обмена каомоджи ♡</span><a href="https://github.com/VEXTRYM/Kaokey-Web">GitHub ↗</a></footer>
+    </main>
+    {dialog && <div className="modal-backdrop" onMouseDown={e => {if(e.target === e.currentTarget) setDialog(null);}}>
+      <section role="dialog" aria-modal="true" aria-label={dialog === "auth" ? "Аккаунт" : "Поделиться"} className="modal">
+        <div className="modal-title"><h2>{dialog === "auth" ? "Аккаунт" : "Поделиться"}</h2>
+          <button className="close" type="button" onClick={() => setDialog(null)} aria-label="Закрыть">×</button>
+        </div>
+        {dialog === "auth" ? <>
+          <div className="form-tabs">
+            <button className={mode === "login" ? "active" : ""} type="button" onClick={() => setMode("login")}>Вход</button>
+            <button className={mode === "register" ? "active" : ""} type="button" onClick={() => setMode("register")}>Регистрация</button>
+          </div>
+          <form className="modal-form" onSubmit={onAuth}>
+            <label>Логин<input required minLength={3} maxLength={32} pattern="[A-Za-z0-9_]+" autoComplete="username" value={username} onChange={e => setUsername(e.target.value)}/></label>
+            <label>Пароль<input required type="password" minLength={10} maxLength={128}
+              autoComplete={mode === "register" ? "new-password" : "current-password"} value={password} onChange={e => setPassword(e.target.value)}/></label>
+            <button className="submit" type="submit">{mode === "login" ? "Войти" : "Зарегистрироваться"}</button>
+          </form>
+        </> : <>
+          <div className="form-tabs">
+            <button className={tab === "kaomoji" ? "active" : ""} type="button" onClick={() => setTab("kaomoji")}>Каомоджи</button>
+            <button className={tab === "list" ? "active" : ""} type="button" onClick={() => setTab("list")}>Список</button>
+          </div>
+          <form className="modal-form" onSubmit={publish}>
+            <label>Название<input required maxLength={100} value={title} onChange={e => setTitle(e.target.value)}/></label>
+            <label>Описание<textarea maxLength={1000} value={description} onChange={e => setDescription(e.target.value)}/></label>
+            {tab === "kaomoji" ? <>
+              <label>Каомоджи<input required maxLength={200} placeholder="(^_^)" value={text} onChange={e => setText(e.target.value)}/></label>
+              <label>Теги через запятую<input value={tags} placeholder="Happy, Greetings" onChange={e => setTags(e.target.value)}/></label>
+            </> : <label>JSON-файл<input type="file" accept=".json,application/json" onChange={onFile} required={!file}/>
+              {file && <small>{file.lists[0].name} · {file.lists[0].kaomoji.length} каомоджи</small>}</label>}
+            <button className="submit" type="submit" disabled={tab === "list" && !file}>Опубликовать</button>
+          </form>
+        </>}
+        {error && <p className="modal-error" role="alert">{error}</p>}
+        {notice && <p className="modal-notice">{notice}</p>}
+      </section>
+    </div>}
   </div>;
 }
 createRoot(document.getElementById("root")!).render(<React.StrictMode><App /></React.StrictMode>);
