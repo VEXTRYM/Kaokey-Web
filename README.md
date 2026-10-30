@@ -10,7 +10,11 @@ A public catalog where people **share and discover** kaomoji and lists for [Kaok
 - Publish individual kaomoji or one full Kaokey list
 - Download any publication as a Kaokey Desktop-compatible JSON list (accepts `favorite` / `favorite_order` from desktop JSON, strips personal favorite state before publishing)
 - Copy individual kaomoji, delete your own publications
-- Browser UI in Russian; REST API with OpenAPI documentation
+- Browser UI in Russian with **Soft Minimal Rose** light/dark themes (system default, saved preference)
+- Header includes Kaokey Releases download link, theme toggle, sign-in and an account menu with profile, own publications and logout
+- Search and browse public publications with a pink-accented, responsive tile catalog
+- One-click import into desktop is intentionally a **placeholder** until desktop protocol support is implemented
+- REST API with OpenAPI documentation
 
 ## Quick start
 
@@ -65,7 +69,7 @@ npm run build
 - `POST /api/v1/auth/login`: login and receive HttpOnly session cookie + CSRF token
 - `GET /api/v1/auth/me`: restore account + CSRF token
 - `POST /api/v1/auth/logout`: revoke session
-- `GET /api/v1/publications?q=&kind=&limit=&offset=`: browse
+- `GET /api/v1/publications?q=&kind=&author=&limit=&offset=`: browse, search or filter by author
 - `GET /api/v1/publications/{id}`: publication details
 - `POST /api/v1/publications`: publish a single kaomoji or full library export containing one list
 - `DELETE /api/v1/publications/{id}`: delete own publication
