@@ -12,7 +12,7 @@ type Publication = {
   data: Kaomoji | Library; author: string; created_at: string;
 };
 type Account = { id?: number; username: string; csrf_token: string };
-type IconName = "download" | "import" | "sun" | "moon" | "user" | "chevron" | "search" |
+type IconName = "download" | "import" | "sun" | "moon" | "chevron" | "search" |
   "plus" | "close" | "logout" | "grid" | "external" | "trash" | "check";
 
 const API = "/api/v1";
@@ -28,7 +28,6 @@ function Icon({ name, size = 19 }: { name: IconName; size?: number }) {
     import: <><path d="M3 5h10v14H3zM7 12h13m-4-4 4 4-4 4" /></>,
     sun: <><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></>,
     moon: <path d="M20.5 14.5A8.4 8.4 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/>,
-    user: <><circle cx="12" cy="8" r="4"/><path d="M4.5 20c.6-4.3 3-6 7.5-6s6.9 1.7 7.5 6"/></>,
     chevron: <path d="m6 9 6 6 6-6"/>,
     search: <><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></>,
     plus: <path d="M12 5v14M5 12h14"/>,
@@ -314,15 +313,14 @@ function App() {
           {account ? <div className="account-menu" ref={menuRef}>
             <button type="button" className={"account-trigger" + (menuOpen ? " open" : "")} aria-expanded={menuOpen}
               aria-haspopup="menu" onClick={() => setMenuOpen(value => !value)}>
-              <span className="account-avatar"><Icon name="user" size={17}/></span>
               <span className="account-handle">{"@" + account.username}</span>
               <Icon name="chevron" size={15}/>
             </button>
             {menuOpen && <div className="menu-panel" role="menu">
-              <div className="menu-heading"><span className="menu-avatar"><Icon name="user" size={20}/></span>
+              <div className="menu-heading">
                 <div><strong>{"@" + account.username}</strong><small>Аккаунт Kaokey</small></div>
               </div>
-              <button role="menuitem" type="button" onClick={() => showDialog("profile")}><Icon name="user" size={17}/>Мой профиль</button>
+              <button role="menuitem" type="button" onClick={() => showDialog("profile")}>Мой профиль</button>
               <button role="menuitem" type="button" onClick={() => switchView("mine")}><Icon name="grid" size={17}/>Мои публикации</button>
               {view === "mine" && <button role="menuitem" type="button" onClick={() => switchView("all")}><Icon name="external" size={17}/>Общий каталог</button>}
               <div className="menu-rule"/>
@@ -330,7 +328,7 @@ function App() {
             </div>}
           </div> : <button type="button" className="sign-in" onClick={() => {
             setAuthMode("login"); showDialog("auth");
-          }}><Icon name="user" size={19}/><span>Войти</span></button>}
+          }}>Войти</button>}
         </div>
       </div>
     </header>
@@ -379,7 +377,6 @@ function App() {
           <button type="button" className="close-button" aria-label="Закрыть" onClick={() => showDialog(null)}><Icon name="close" size={20}/></button>
         </div>
         {dialog === "profile" && account && <div className="profile-preview">
-          <span className="profile-avatar"><Icon name="user" size={29}/></span>
           <strong>{"@" + account.username}</strong>
           <p>Твои опубликованные каомоджи и списки доступны через раздел «Мои публикации».</p>
           <button type="button" className="submit-button" onClick={() => { switchView("mine"); showDialog(null); }}>Перейти к публикациям</button>

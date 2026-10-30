@@ -154,14 +154,6 @@ button, a, input, textarea { -webkit-tap-highlight-color: transparent; }
 }
 .account-trigger:hover, .account-trigger.open { background: var(--surface-soft); }
 .account-trigger > svg { color: var(--muted); }
-.account-avatar, .menu-avatar, .profile-avatar {
-  display: inline-grid;
-  place-items: center;
-  background: var(--active-bg);
-  color: var(--accent);
-  flex: none;
-}
-.account-avatar { width: 32px; height: 32px; border-radius: 10px; }
 .account-handle { max-width: 150px; overflow: hidden; text-overflow: ellipsis; }
 .menu-panel {
   position: absolute;
@@ -174,8 +166,7 @@ button, a, input, textarea { -webkit-tap-highlight-color: transparent; }
   padding: 8px;
   box-shadow: var(--shadow-popover);
 }
-.menu-heading { display: flex; gap: 11px; align-items: center; padding: 10px 9px 13px; }
-.menu-avatar { width: 36px; height: 36px; border-radius: 11px; }
+.menu-heading { display: flex; align-items: center; padding: 10px 12px 13px; }
 .menu-heading strong { font-size: 13px; display: block; overflow-wrap: anywhere; }
 .menu-heading small { display: block; margin-top: 3px; font-size: 11px; color: var(--muted); }
 .menu-panel > button {
@@ -418,8 +409,7 @@ button, a, input, textarea { -webkit-tap-highlight-color: transparent; }
 .form-error { margin-top: 15px; font-size: 12px; color: var(--danger); }
 .form-note { margin-top: 15px; font-size: 12px; color: var(--muted); }
 .profile-preview { display: flex; flex-direction: column; align-items: center; text-align: center; padding-top: 25px; }
-.profile-avatar { width: 66px; height: 66px; border-radius: 21px; }
-.profile-preview strong { margin-top: 16px; font-size: 17px; }
+.profile-preview strong { font-size: 17px; }
 .profile-preview p { max-width: 300px; font-size: 13px; line-height: 1.6; color: var(--muted); }
 .profile-preview button { margin-top: 15px; }
 
@@ -440,8 +430,7 @@ button, a, input, textarea { -webkit-tap-highlight-color: transparent; }
   .account-trigger { padding: 4px; gap: 3px; }
   .account-handle { max-width: 96px; font-size: 11px; }
   .account-trigger > svg:last-child { display: none; }
-  .sign-in { padding: 8px; min-width: 38px; justify-content: center; }
-  .sign-in span { display: none; }
+  .sign-in { padding: 9px 11px; min-width: 60px; justify-content: center; }
   .nav-tabs { width: 100%; gap: 3px; }
   .nav-tab { flex: 1; text-align: center; min-height: 39px; font-size: 13px; }
   .main { padding: 24px 14px 55px; }
