@@ -284,6 +284,20 @@ button, a, input, textarea { -webkit-tap-highlight-color: transparent; }
   overflow: hidden;
   text-overflow: ellipsis;
 }
+/* Unconstrained, invisible copy for accurate glyph-width measurement. */
+.face-measure {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: max-content;
+  max-width: none;
+  font-size: 36px;
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: clip;
+  visibility: hidden;
+  pointer-events: none;
+}
 .tile-list { height: 175px; }
 .tile-list-name {
   font-size: 19px;

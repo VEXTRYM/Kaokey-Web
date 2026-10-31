@@ -1,46 +1,51 @@
 import { useLayoutEffect, useRef } from "react";
 
 const MAX_FONT_SIZE = 36;
-const MIN_FONT_SIZE = 12;
+const MIN_FONT_SIZE = 16;
+const WIDTH_USAGE = 0.92;
 
 /**
- * Keep a kaomoji on exactly one line. Measure its actual rendered width
- * (including emoji and fallback fonts), rather than guessing by text length.
- * At 12px, exceptionally long strings use an ellipsis; the full text is
- * available in the card's hover/focus tooltip.
+ * Fit each kaomoji to a single line using its real, unconstrained DOM width.
+ *
+ * A hidden measurement copy uses the same font, fallback glyphs and shaping
+ * as the visible text, but is not clipped by its container. This avoids
+ * unreliable scrollWidth measurements on ellipsized elements.
+ *
+ * At the 16px readability floor, unusually long kaomoji are ellipsized.
+ * The full text remains available via the card's hover/focus tooltip.
  */
 export default function AutoFitKaomoji({ text }: { text: string }) {
-  const ref = useRef<HTMLSpanElement>(null);
+  const previewRef = useRef<HTMLSpanElement>(null);
+  const measureRef = useRef<HTMLSpanElement>(null);
 
   useLayoutEffect(() => {
-    const element = ref.current;
-    if (!element) return;
+    const preview = previewRef.current;
+    const measure = measureRef.current;
+    const parent = preview?.parentElement;
+    if (!preview || !measure || !parent) return;
 
     let disposed = false;
-    const fit = () => {
-      if (disposed || element.clientWidth <= 0) return;
 
-      element.style.fontSize = MAX_FONT_SIZE + "px";
-      if (element.scrollWidth <= element.clientWidth) return;
+    function fit() {
+      if (disposed || !preview || !measure) return;
+      const availableWidth = preview.getBoundingClientRect().width;
+      const fullWidth = measure.getBoundingClientRect().width;
 
-      // Binary search for the largest font size that fits on one line.
-      let low = MIN_FONT_SIZE;
-      let high = MAX_FONT_SIZE;
-      for (let step = 0; step < 9; step++) {
-        const middle = (low + high) / 2;
-        element.style.fontSize = middle + "px";
-        if (element.scrollWidth <= element.clientWidth) low = middle;
-        else high = middle;
-      }
-      element.style.fontSize = Math.floor(low * 10) / 10 + "px";
-    };
+      if (availableWidth <= 0 || fullWidth <= 0) return;
+
+      // The measurement copy always uses MAX_FONT_SIZE at natural width.
+      // Scaling the font directly avoids binary-search rounding errors and
+      // doesn't rely on the clipped element's scrollWidth.
+      const fittedSize = MAX_FONT_SIZE * (availableWidth * WIDTH_USAGE / fullWidth);
+      const size = Math.min(MAX_FONT_SIZE, Math.max(MIN_FONT_SIZE, fittedSize));
+      preview.style.fontSize = size.toFixed(2) + "px";
+    }
 
     const observer = new ResizeObserver(fit);
-    // Observe the preview container, not the resized text, to avoid loops.
-    if (element.parentElement) observer.observe(element.parentElement);
+    observer.observe(parent);
     fit();
 
-    // Web fonts may load after first paint and change glyph widths.
+    // Account for late-loading web fonts and font fallback changes.
     const fonts = document.fonts;
     void fonts?.ready.then(() => { if (!disposed) fit(); });
     fonts?.addEventListener("loadingdone", fit);
@@ -52,5 +57,8 @@ export default function AutoFitKaomoji({ text }: { text: string }) {
     };
   }, [text]);
 
-  return <span ref={ref} className="face">{text}</span>;
+  return <>
+    <span ref={previewRef} className="face">{text}</span>
+    <span ref={measureRef} className="face face-measure" aria-hidden="true">{text}</span>
+  </>;
 }
