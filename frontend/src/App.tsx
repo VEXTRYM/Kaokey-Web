@@ -277,11 +277,12 @@ function App() {
     const width = Math.min(window.innerWidth - 24, Math.max(110, Math.min(430, Array.from(text).length * 12 + 38)));
     const left = Math.max(12, Math.min(rect.left + rect.width / 2 - width / 2, window.innerWidth - width - 12));
     const gap = 10;
-    const placeAbove = window.innerHeight - rect.bottom < 175 && rect.top > window.innerHeight - rect.bottom;
+    // Always anchor the tooltip above the card, never below it.
+    // Use bottom positioning so the tooltip grows upwards as text wraps.
     const style: React.CSSProperties = {
       width,
       left,
-      ...(placeAbove ? { bottom: window.innerHeight - rect.top + gap } : { top: rect.bottom + gap }),
+      bottom: window.innerHeight - rect.top + gap,
     };
     return { text, style };
   }
