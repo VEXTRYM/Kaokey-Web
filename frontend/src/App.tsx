@@ -1,9 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+import AutoFitKaomoji from "./AutoFitKaomoji";
 
 type Kind = "kaomoji" | "list";
 type Theme = "light" | "dark";
 type View = "all" | "mine";
 type Dialog = "auth" | "share" | "profile" | null;
+type FullTextTooltip = { text: string; style: React.CSSProperties };
 type Kaomoji = { name: string; text: string; tags: string[]; favorite?: boolean };
 type ListData = { name: string; main_tags: string[]; kaomoji: Kaomoji[] };
 type Library = { format_version: 1; active_list: string; lists: ListData[] };
@@ -96,6 +99,8 @@ function App() {
   const [library, setLibrary] = useState<Library | null>(null);
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+  const [tooltip, setTooltip] = useState<FullTextTooltip | null>(null);
+  const tooltipTimer = useRef<number | null>(null);
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
@@ -261,15 +266,77 @@ function App() {
     } catch (err) { setError(String(err)); }
   }
 
+  function hideTooltip() {
+    if (tooltipTimer.current !== null) window.clearTimeout(tooltipTimer.current);
+    tooltipTimer.current = null;
+    setTooltip(null);
+  }
+
+  function tooltipFor(element: HTMLElement, text: string): FullTextTooltip {
+    const rect = element.getBoundingClientRect();
+    const width = Math.min(window.innerWidth - 24, Math.max(110, Math.min(430, Array.from(text).length * 12 + 38)));
+    const left = Math.max(12, Math.min(rect.left + rect.width / 2 - width / 2, window.innerWidth - width - 12));
+    const gap = 10;
+    const placeAbove = window.innerHeight - rect.bottom < 175 && rect.top > window.innerHeight - rect.bottom;
+    const style: React.CSSProperties = {
+      width,
+      left,
+      ...(placeAbove ? { bottom: window.innerHeight - rect.top + gap } : { top: rect.bottom + gap }),
+    };
+    return { text, style };
+  }
+
+  function scheduleTooltip(event: React.PointerEvent<HTMLElement>, text: string) {
+    if (event.pointerType !== "mouse" && event.pointerType !== "pen") return;
+    if (tooltip?.text === text) return;
+    if (tooltipTimer.current !== null) window.clearTimeout(tooltipTimer.current);
+    const next = tooltipFor(event.currentTarget, text);
+    // The tooltip appears after the pointer rests on the card; once shown,
+    // it stays visible for the entire hover rather than timing out.
+    tooltipTimer.current = window.setTimeout(() => {
+      setTooltip(next);
+      tooltipTimer.current = null;
+    }, 380);
+  }
+
+  useEffect(() => {
+    const clear = () => {
+      if (tooltipTimer.current !== null) window.clearTimeout(tooltipTimer.current);
+      tooltipTimer.current = null;
+      setTooltip(null);
+    };
+    // Prevent a fixed-position tooltip from being left behind on scrolling.
+    window.addEventListener("scroll", clear, true);
+    window.addEventListener("resize", clear);
+    return () => {
+      clear();
+      window.removeEventListener("scroll", clear, true);
+      window.removeEventListener("resize", clear);
+    };
+  }, []);
+
   function renderCard(pub: Publication) {
     const list = pub.kind === "list" ? (pub.data as Library).lists[0] : null;
-    return <article className={"tile " + (list ? "tile-list" : "tile-face")} key={pub.id}>
+    const fullText = list ? null : (pub.data as Kaomoji).text;
+    return <article className={"tile " + (list ? "tile-list" : "tile-face")} key={pub.id}
+      aria-label={fullText || undefined}
+      onPointerEnter={fullText ? event => scheduleTooltip(event, fullText) : undefined}
+      onPointerMove={fullText ? event => scheduleTooltip(event, fullText) : undefined}
+      onPointerLeave={fullText ? hideTooltip : undefined}
+      onFocusCapture={fullText ? event => {
+        if (tooltipTimer.current !== null) window.clearTimeout(tooltipTimer.current);
+        tooltipTimer.current = null;
+        setTooltip(tooltipFor(event.currentTarget, fullText));
+      } : undefined}
+      onBlurCapture={fullText ? event => {
+        if (!event.currentTarget.contains(event.relatedTarget as Node | null)) hideTooltip();
+      } : undefined}>
       <div className="tile-content">
         {list ? <>
           <span className="tile-list-name">{list.name}</span>
           <span className="tile-list-count">{list.kaomoji.length} каомоджи</span>
           <span className="tile-list-preview">{list.kaomoji.slice(0, 3).map(x => x.text).join("  ")}</span>
-        </> : <span className="face">{(pub.data as Kaomoji).text}</span>}
+        </> : <AutoFitKaomoji text={fullText!}/>}
       </div>
       <div className="tile-overlay">
         <span className="tile-author">{"@" + pub.author}</span>
@@ -361,6 +428,13 @@ function App() {
           items.length ? <div className="tiles">{items.map(renderCard)}</div> :
           <div className="empty">{view === "mine" ? "Пока нет своих публикаций." : "Ничего не найдено."}</div>}
       </section>
+
+      {tooltip && createPortal(
+        <div className="full-text-tooltip" role="tooltip" style={tooltip.style}>
+          {tooltip.text}
+        </div>,
+        document.body,
+      )}
 
       <div className="pagination">
         <button type="button" className="page-button" disabled={!page || loading} onClick={() => setPage(p => Math.max(0, p - 1))}>← Назад</button>
