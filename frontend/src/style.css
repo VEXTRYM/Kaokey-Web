@@ -273,14 +273,16 @@ button, a, input, textarea { -webkit-tap-highlight-color: transparent; }
   transition: transform .18s, padding-bottom .18s;
 }
 .face {
-  font-size: clamp(22px, 2.45vw, 33px);
-  line-height: 1.28;
+  display: block;
+  width: 100%;
+  min-width: 0;
+  font-size: 36px;
   font-weight: 500;
-  overflow-wrap: anywhere;
-  max-width: 100%;
-  max-height: 100%;
-  overflow: hidden;
+  line-height: 1.28;
   color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .tile-list { height: 175px; }
 .tile-list-name {
@@ -299,7 +301,7 @@ button, a, input, textarea { -webkit-tap-highlight-color: transparent; }
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.tile:hover .tile-content, .tile:focus-within .tile-content { transform: translateY(-12px); }
+/* Keep the kaomoji fixed in place while the actions appear. */
 .tile-overlay {
   position: absolute;
   inset: auto 0 0;
@@ -445,7 +447,6 @@ button, a, input, textarea { -webkit-tap-highlight-color: transparent; }
   .tiles { grid-template-columns: repeat(auto-fill, minmax(142px, 1fr)); gap: 11px; }
   .tile { height: 127px; }
   .tile-list { height: 159px; }
-  .face { font-size: 23px; }
   .tile-list-name { font-size: 17px; }
   .tile-list-preview { font-size: 16px; }
   .tile-overlay { padding: 6px 7px; }
@@ -464,4 +465,25 @@ button, a, input, textarea { -webkit-tap-highlight-color: transparent; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
+
+/* This tooltip is rendered outside the clipped cards so even very long
+   kaomoji remain fully readable. It never steals hover from card actions. */
+.full-text-tooltip {
+  position: fixed;
+  z-index: 100;
+  box-sizing: border-box;
+  padding: 12px 15px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow-popover);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  pointer-events: none;
 }
